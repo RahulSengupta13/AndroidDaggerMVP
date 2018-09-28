@@ -18,6 +18,7 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_vision)
         title = "AutoVision Activity"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         injectDependency()
         presenter.attach(this)
