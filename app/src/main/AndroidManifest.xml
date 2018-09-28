@@ -3,16 +3,18 @@
     package="com.example.daggermvp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
+        android:name=".BaseApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name="com.example.daggermvp.BaseApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.daggermvp.ui.main.MainActivity">
+        <activity android:name=".ui.autovision.AutoVisionActivity"></activity>
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

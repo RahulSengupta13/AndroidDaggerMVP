@@ -3,10 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group>
         <item
+            android:id="@+id/nav_item_auto_vision"
+            android:checked="true"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="@string/auto_vision"
+            app:showAsAction="never" />
+        <item
             android:id="@+id/nav_item_info"
             android:checked="true"
             android:icon="@android:drawable/ic_dialog_info"
             android:title="@string/info"
-            app:showAsAction="always" />
+            app:showAsAction="never" />
     </group>
 </menu>

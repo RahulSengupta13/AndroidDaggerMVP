@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.daggermvp.ui.autovision.AutoVisionActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="8dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="8dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/auto_vision"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="310dp" />
+</android.support.constraint.ConstraintLayout>
