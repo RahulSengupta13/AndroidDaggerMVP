@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.daggermvp.R
 import com.example.daggermvp.dagger.component.DaggerFragmentComponent
 import com.example.daggermvp.dagger.module.FragmentModule
@@ -95,10 +96,10 @@ class ListFragment : Fragment(), ListContract.View, ListAdapter.OnItemClickListe
     }
 
     override fun itemRemoveClick(post: Post) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(context, "${post.id} will be deleted!", Toast.LENGTH_SHORT).show()
     }
 
     override fun itemDetail(postId: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(context, "$postId clicked.", Toast.LENGTH_SHORT).show()
     }
 }
