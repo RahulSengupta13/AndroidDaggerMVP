@@ -14,12 +14,7 @@ class AutoVisionModule(private var activity: Activity) {
     }
 
     @Provides
-    fun providePresenter(): AutoVisionContract.Presenter {
-        return AutoVisionPresenter()
-    }
-
-    @Provides
-    fun provideContextWrapperRepository(): AutoVisionRepositoryContract.Presenter {
+    fun provideContextWrapperRepository(): AutoVisionContract.Presenter {
         return AutoVisionRepositoryImpl(activity)
     }
 }

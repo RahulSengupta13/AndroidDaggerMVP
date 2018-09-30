@@ -53,17 +53,31 @@ class LabelDetectionTask constructor(activity: AutoVisionActivity, private val m
 
     companion object {
         private fun convertResponseToString(response: BatchAnnotateImagesResponse): String {
-            val message = StringBuilder("I found these things:\n\n")
+
+            val message = StringBuilder("")
 
             val labels = response.responses[0].labelAnnotations
             if (labels != null) {
-                for (label in labels) {
+                message.append("\n\nThis image is related to:\n\n")
+                labels.forEach { label ->
                     message.append(String.format(Locale.US, "%.3f: %s", label.score, label.description))
                     message.append("\n")
                 }
-            } else {
-                message.append("nothing")
             }
+
+            val logos = response.responses[0].logoAnnotations
+            if(logos != null) {
+                message.append("\n\nI found the following logos in your image:\n\n")
+                logos.forEach {
+                    message.append(String.format(Locale.US, "%.3f: %s", it.score, it.description))
+                    message.append("\n")
+                }
+            }
+
+            if(message.toString().isEmpty()) {
+                message.append("We are sorry, please try again!")
+            }
+
             Log.d(TAG, message.toString())
             return message.toString()
         }

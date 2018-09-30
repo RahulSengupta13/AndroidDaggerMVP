@@ -19,13 +19,10 @@ import java.io.File
 import android.os.Environment
 import com.example.daggermvp.R
 
-class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, AutoVisionRepositoryContract.View {
+class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
 
     @Inject
     lateinit var presenter: AutoVisionContract.Presenter
-
-    @Inject
-    lateinit var autoVisionRepository: AutoVisionRepositoryContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +31,7 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, AutoVis
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         injectDependency()
-
         presenter.attach(this)
-        autoVisionRepository.attach(this)
 
         btnGallery.setOnClickListener {
             val builder = AlertDialog.Builder(this)
@@ -53,13 +48,13 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, AutoVis
         when (requestCode) {
             GALLERY_IMAGE_REQUEST -> {
                 if (data != null && resultCode == Activity.RESULT_OK) {
-                    autoVisionRepository.uploadImage(data.data)
+                    presenter.uploadImage(data.data)
                 }
             }
             CAMERA_IMAGE_REQUEST -> {
                 if (resultCode == Activity.RESULT_OK) {
                     val photoUri = FileProvider.getUriForFile(this, applicationContext.packageName + ".provider", getCameraFile())
-                    autoVisionRepository.uploadImage(photoUri)
+                    presenter.uploadImage(photoUri)
                 }
             }
         }
