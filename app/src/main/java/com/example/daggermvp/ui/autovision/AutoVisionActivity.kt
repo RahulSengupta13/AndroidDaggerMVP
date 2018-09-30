@@ -30,7 +30,7 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, AutoVis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_vision)
-        title = "Know the logo"
+        title = "Know your image"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         injectDependency()
