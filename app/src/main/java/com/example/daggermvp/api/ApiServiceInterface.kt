@@ -3,7 +3,7 @@ package com.example.daggermvp.api
 import com.example.daggermvp.models.Album
 import com.example.daggermvp.models.Post
 import com.example.daggermvp.models.User
-import com.example.daggermvp.utils.Constants
+import com.example.daggermvp.utils.ConstantsUtils
 import io.reactivex.Observable
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -45,7 +45,7 @@ interface ApiServiceInterface {
             val retrofit = retrofit2.Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(Constants.BASE_URL)
+                    .baseUrl(ConstantsUtils.BASE_URL)
                     .build()
 
             return retrofit.create(ApiServiceInterface::class.java)

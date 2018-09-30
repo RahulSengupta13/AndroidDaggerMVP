@@ -8,11 +8,11 @@ import com.example.daggermvp.R
 import com.example.daggermvp.dagger.component.DaggerActivityComponent
 import com.example.daggermvp.dagger.module.ActivityModule
 import com.example.daggermvp.ui.aboutfragment.AboutFragment
+import com.example.daggermvp.ui.autovision.AutoVisionActivity
 import com.example.daggermvp.ui.listfragment.ListFragment
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainContract.View {
-
     @Inject lateinit var presenter: MainContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         return when(item!!.itemId) {
             R.id.nav_item_info -> {
                 presenter.onDrawerOptionAboutClick()
+                true
+            }
+            R.id.nav_item_auto_vision -> {
+                presenter.onAutoVisionClick()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -72,6 +76,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
                 .setCustomAnimations(AnimType.SLIDE.getAnimPair().first, AnimType.SLIDE.getAnimPair().second)
                 .replace(R.id.frame, ListFragment.newInstance(), ListFragment.TAG)
                 .commit()
+    }
+
+    override fun launchAutoVisionActivity() {
+        startActivity(AutoVisionActivity.getIntent(this))
     }
 
     enum class AnimType {

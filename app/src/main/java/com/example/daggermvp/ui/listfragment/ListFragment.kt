@@ -15,7 +15,7 @@ import com.example.daggermvp.dagger.component.DaggerFragmentComponent
 import com.example.daggermvp.dagger.module.FragmentModule
 import com.example.daggermvp.models.DetailsViewModel
 import com.example.daggermvp.models.Post
-import com.example.daggermvp.utils.SwipeToDelete
+import com.example.daggermvp.utils.SwipeToDeleteUtil
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 
@@ -80,7 +80,7 @@ class ListFragment : Fragment(), ListContract.View, ListAdapter.OnItemClickListe
         recyclerView!!.layoutManager = LinearLayoutManager(activity)
         recyclerView!!.adapter = adapter
 
-        val swipeHandler = object : SwipeToDelete(activity!!) {
+        val swipeHandler = object : SwipeToDeleteUtil(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val swipeAdapter = recyclerView.adapter as ListAdapter
                 swipeAdapter.removeAt(viewHolder.adapterPosition)

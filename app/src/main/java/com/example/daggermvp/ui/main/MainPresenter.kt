@@ -11,6 +11,10 @@ class MainPresenter: MainContract.Presenter {
         view.showAboutFragment()
     }
 
+    override fun onAutoVisionClick() {
+        view.launchAutoVisionActivity()
+    }
+
     override fun subscribe() {
 
     }
@@ -23,5 +27,4 @@ class MainPresenter: MainContract.Presenter {
         this.view = view
         view.showListFragment()
     }
-
 }
