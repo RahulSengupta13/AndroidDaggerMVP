@@ -20,9 +20,9 @@ import com.google.api.services.vision.v1.model.Feature
 import com.google.api.services.vision.v1.model.Image
 import java.io.ByteArrayOutputStream
 
-class AutoVisionRepositoryImpl constructor(private val activity: Activity) : AutoVisionRepositoryContract.Presenter {
+class AutoVisionRepositoryImpl constructor(private val activity: Activity) : AutoVisionContract.Presenter {
 
-    private lateinit var view: AutoVisionRepositoryContract.View
+    private lateinit var view: AutoVisionContract.View
 
     override fun prepareAnnotationRequest(bitmap: Bitmap): Vision.Images.Annotate {
         val httpTransport = AndroidHttp.newCompatibleTransport()
@@ -55,10 +55,23 @@ class AutoVisionRepositoryImpl constructor(private val activity: Activity) : Aut
                 annotateImageRequest.image = base64EncodedImage
                 annotateImageRequest.features = object : ArrayList<Feature>() {
                     init {
-                        val labelDetection = Feature()
-                        labelDetection.type = "LABEL_DETECTION"
-                        labelDetection.maxResults = MAX_LABEL_RESULTS
+                        val labelDetection = Feature().apply{
+                            type = "LABEL_DETECTION"
+                            maxResults = MAX_LABEL_RESULTS
+                        }
                         add(labelDetection)
+
+                        val logoDetection = Feature().apply {
+                            type = "LOGO_DETECTION"
+                            maxResults = MAX_LOGO_RESULTS
+                        }
+                        add(logoDetection)
+
+//                        val webDetection = Feature().apply {
+//                            type = "WEB_DETECTION"
+//                            maxResults = MAX_LOGO_RESULTS
+//                        }
+//                        add(webDetection)
                     }
                 }
                 add(annotateImageRequest)
@@ -107,12 +120,13 @@ class AutoVisionRepositoryImpl constructor(private val activity: Activity) : Aut
 
     }
 
-    override fun attach(view: AutoVisionRepositoryContract.View) {
+    override fun attach(view: AutoVisionContract.View) {
         this.view = view
     }
 
     companion object {
         private const val MAX_LABEL_RESULTS = 10
+        private const val MAX_LOGO_RESULTS = 10
         private const val MAX_DIMENSION = 1200
 
         private const val CLOUD_VISION_API_KEY = BuildConfig.API_KEY
