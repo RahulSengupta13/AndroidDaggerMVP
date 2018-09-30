@@ -5,4 +5,12 @@
         It fetches data from typicode api (https://jsonplaceholder.typicode.com)\n\nPlease check the source code for further information.\n\nThank you.\n\n Rahul</string>
     <string name="info">Info</string>
     <string name="auto_vision">Auto Vision</string>
+    <string name="btn_gallery">Upload</string>
+    <string name="header_text">Upload a picture to see results</string>
+    <string name="logo_image">Logo image</string>
+    <string name="image_source">Select an image source</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="select_photo">Select a photo</string>
+    <string name="fetching_results">Fetching results…</string>
 </resources>
