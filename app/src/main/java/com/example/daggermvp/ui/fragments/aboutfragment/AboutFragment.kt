@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.aboutfragment
+package com.example.daggermvp.ui.fragments.aboutfragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.daggermvp.R
-import com.example.daggermvp.dagger.component.DaggerFragmentComponent
-import com.example.daggermvp.dagger.module.FragmentModule
+import com.example.daggermvp.dagger.component.DaggerWelcomeFragmentComponent
+import com.example.daggermvp.dagger.module.WelcomeFragmentModule
 import kotlinx.android.synthetic.main.fragment_about.*
 import javax.inject.Inject
 
@@ -41,8 +41,8 @@ class AboutFragment : Fragment(), AboutContract.View {
     }
 
     private fun injectDependency() {
-        val aboutComponent = DaggerFragmentComponent.builder()
-                .fragmentModule(FragmentModule())
+        val aboutComponent = DaggerWelcomeFragmentComponent.builder()
+                .welcomeFragmentModule(WelcomeFragmentModule())
                 .build()
         aboutComponent.inject(this)
     }
@@ -63,9 +63,8 @@ class AboutFragment : Fragment(), AboutContract.View {
     }
 
     companion object {
-        @JvmStatic
         fun newInstance() = AboutFragment()
 
-        val TAG: String = "About Fragment"
+        const val TAG: String = "About Fragment"
     }
 }

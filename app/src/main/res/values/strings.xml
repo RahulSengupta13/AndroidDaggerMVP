@@ -13,4 +13,16 @@
     <string name="gallery">Gallery</string>
     <string name="select_photo">Select a photo</string>
     <string name="fetching_results">Fetching results…</string>
+
+    <!--Welcome Strings-->
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="slide_1_title">Powerful Insight</string>
+    <string name="slide_1_desc">Get powerful insight from your images: Text, Logos, Products and more!</string>
+    <string name="slide_2_title">Save your searches</string>
+    <string name="slide_2_desc">Now save every image you\'ve ever searched via the app!</string>
+    <string name="slide_3_title">Capture or Upload</string>
+    <string name="slide_3_desc">You can either browse for an image from the gallery or straight up click from the camera!</string>
+
 </resources>

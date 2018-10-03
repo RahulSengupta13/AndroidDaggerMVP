@@ -1,6 +1,6 @@
-package com.example.daggermvp.ui.aboutfragment
+package com.example.daggermvp.ui.fragments.aboutfragment
 
-import com.example.daggermvp.ui.base.BaseContract
+import com.example.daggermvp.ui.BaseContract
 
 class AboutContract {
     interface View: BaseContract.View {

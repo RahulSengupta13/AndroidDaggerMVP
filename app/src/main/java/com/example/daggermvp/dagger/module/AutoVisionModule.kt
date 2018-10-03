@@ -1,7 +1,7 @@
 package com.example.daggermvp.dagger.module
 
 import android.app.Activity
-import com.example.daggermvp.ui.autovision.*
+import com.example.daggermvp.ui.activities.autovision.*
 import dagger.Module
 import dagger.Provides
 

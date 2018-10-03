@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.aboutfragment
+package com.example.daggermvp.ui.fragments.aboutfragment
 
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

@@ -1,8 +1,8 @@
-package com.example.daggermvp.ui.autovision
+package com.example.daggermvp.ui.activities.autovision
 
 import android.graphics.Bitmap
 import android.net.Uri
-import com.example.daggermvp.ui.base.BaseContract
+import com.example.daggermvp.ui.BaseContract
 import com.google.api.services.vision.v1.Vision
 
 class AutoVisionContract {
