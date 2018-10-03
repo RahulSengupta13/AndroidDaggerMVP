@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.aboutfragment
+package com.example.daggermvp.ui.fragments.aboutfragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

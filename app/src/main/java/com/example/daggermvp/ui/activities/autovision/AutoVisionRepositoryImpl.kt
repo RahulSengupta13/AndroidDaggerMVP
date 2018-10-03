@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.autovision
+package com.example.daggermvp.ui.activities.autovision
 
 import android.app.Activity
 import android.graphics.Bitmap

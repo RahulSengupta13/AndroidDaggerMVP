@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.welcome
+package com.example.daggermvp.ui.activities.welcome
 
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
@@ -9,9 +9,9 @@ import android.view.WindowManager
 import com.example.daggermvp.R
 import com.example.daggermvp.dagger.component.DaggerWelcomeActivityComponent
 import com.example.daggermvp.dagger.module.WelcomeActivityModule
-import com.example.daggermvp.ui.aboutfragment.AboutFragment
-import com.example.daggermvp.ui.autovision.AutoVisionActivity
-import com.example.daggermvp.ui.welcomefragment.WelcomeFragment
+import com.example.daggermvp.ui.fragments.aboutfragment.AboutFragment
+import com.example.daggermvp.ui.activities.autovision.AutoVisionActivity
+import com.example.daggermvp.ui.fragments.welcomefragment.WelcomeFragment
 import javax.inject.Inject
 
 class WelcomeActivity : AppCompatActivity(), WelcomeContract.View {

@@ -17,10 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.autovision.AutoVisionActivity" />
+        <activity android:name="com.example.daggermvp.ui.activities.autovision.AutoVisionActivity" />
 
         <activity
-            android:name=".ui.welcome.WelcomeActivity"
+            android:name="com.example.daggermvp.ui.activities.welcome.WelcomeActivity"
             android:theme="@style/WelcomeTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

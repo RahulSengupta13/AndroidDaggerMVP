@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.autovision
+package com.example.daggermvp.ui.activities.autovision
 
 import android.app.ProgressDialog
 import com.google.api.client.googleapis.json.GoogleJsonResponseException
@@ -7,7 +7,7 @@ import com.google.api.services.vision.v1.Vision
 import android.os.AsyncTask
 import android.util.Log
 import android.widget.TextView
-import com.example.daggermvp.ui.autovision.AutoVisionActivity.Companion.TAG
+import com.example.daggermvp.ui.activities.autovision.AutoVisionActivity.Companion.TAG
 import java.io.IOException
 import java.lang.ref.WeakReference
 import java.util.*

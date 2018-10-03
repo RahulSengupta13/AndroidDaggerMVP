@@ -1,10 +1,9 @@
 package com.example.daggermvp.dagger.module
 
-import com.example.daggermvp.ui.aboutfragment.AboutContract
-import com.example.daggermvp.ui.aboutfragment.AboutPresenter
-import com.example.daggermvp.ui.welcomefragment.WelcomeFragmentContract
-import com.example.daggermvp.ui.welcomefragment.WelcomeFragmentPresenter
-import com.example.daggermvp.utils.SharedPreferencesManager
+import com.example.daggermvp.ui.fragments.aboutfragment.AboutContract
+import com.example.daggermvp.ui.fragments.aboutfragment.AboutPresenter
+import com.example.daggermvp.ui.fragments.welcomefragment.WelcomeFragmentContract
+import com.example.daggermvp.ui.fragments.welcomefragment.WelcomeFragmentPresenter
 import dagger.Module
 import dagger.Provides
 

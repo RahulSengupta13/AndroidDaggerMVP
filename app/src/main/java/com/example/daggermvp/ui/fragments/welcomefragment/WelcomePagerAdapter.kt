@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.welcomefragment
+package com.example.daggermvp.ui.fragments.welcomefragment
 
 import android.content.Context
 import android.view.ViewGroup

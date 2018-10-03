@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.base
+package com.example.daggermvp.ui
 
 class BaseContract {
     interface Presenter<in T> {

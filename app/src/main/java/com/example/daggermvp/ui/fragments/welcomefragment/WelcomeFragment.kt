@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.welcomefragment
+package com.example.daggermvp.ui.fragments.welcomefragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -14,7 +14,7 @@ import javax.inject.Inject
 import android.text.Html
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_welcome.*
-import com.example.daggermvp.ui.autovision.AutoVisionActivity
+import com.example.daggermvp.ui.activities.autovision.AutoVisionActivity
 import com.example.daggermvp.R
 
 class WelcomeFragment : Fragment(), WelcomeFragmentContract.View {

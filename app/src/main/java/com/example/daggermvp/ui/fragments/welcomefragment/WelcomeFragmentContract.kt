@@ -1,6 +1,6 @@
-package com.example.daggermvp.ui.welcomefragment
+package com.example.daggermvp.ui.fragments.welcomefragment
 
-import com.example.daggermvp.ui.base.BaseContract
+import com.example.daggermvp.ui.BaseContract
 
 class WelcomeFragmentContract {
 

@@ -1,8 +1,8 @@
 package com.example.daggermvp.dagger.module
 
 import android.app.Activity
-import com.example.daggermvp.ui.welcome.WelcomeContract
-import com.example.daggermvp.ui.welcome.WelcomePresenter
+import com.example.daggermvp.ui.activities.welcome.WelcomeContract
+import com.example.daggermvp.ui.activities.welcome.WelcomePresenter
 import dagger.Module
 import dagger.Provides
 

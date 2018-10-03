@@ -1,6 +1,6 @@
-package com.example.daggermvp.ui.welcome
+package com.example.daggermvp.ui.activities.welcome
 
-import com.example.daggermvp.ui.base.BaseContract
+import com.example.daggermvp.ui.BaseContract
 
 class WelcomeContract {
     interface View: BaseContract.View {

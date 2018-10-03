@@ -1,4 +1,4 @@
-package com.example.daggermvp.ui.welcome
+package com.example.daggermvp.ui.activities.welcome
 
 import io.reactivex.disposables.CompositeDisposable
 
