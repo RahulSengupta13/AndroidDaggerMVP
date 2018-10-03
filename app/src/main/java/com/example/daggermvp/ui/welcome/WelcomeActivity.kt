@@ -1,19 +1,23 @@
-package com.example.daggermvp.ui.main
+package com.example.daggermvp.ui.welcome
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import com.example.daggermvp.R
 import com.example.daggermvp.dagger.component.DaggerActivityComponent
 import com.example.daggermvp.dagger.module.ActivityModule
 import com.example.daggermvp.ui.aboutfragment.AboutFragment
 import com.example.daggermvp.ui.autovision.AutoVisionActivity
-import com.example.daggermvp.ui.listfragment.ListFragment
+import com.example.daggermvp.ui.welcomefragment.WelcomeFragment
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), MainContract.View {
-    @Inject lateinit var presenter: MainContract.Presenter
+class WelcomeActivity : AppCompatActivity(), WelcomeContract.View {
+
+    @Inject
+    lateinit var presenter: WelcomeContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,25 +25,15 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         injectDependency()
         presenter.attach(this)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = Color.TRANSPARENT
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when(item!!.itemId) {
-            R.id.nav_item_info -> {
-                presenter.onDrawerOptionAboutClick()
-                true
-            }
-            R.id.nav_item_auto_vision -> {
-                presenter.onAutoVisionClick()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onBackPressed() {
@@ -58,23 +52,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
                 .activityModule(ActivityModule(this))
                 .build()
         activityComponent.inject(this)
+
     }
 
-    override fun showAboutFragment() {
-        if (supportFragmentManager.findFragmentByTag(AboutFragment.TAG) == null) {
-            supportFragmentManager.beginTransaction()
-                    .addToBackStack(null)
-                    .setCustomAnimations(AnimType.FADE.getAnimPair().first, AnimType.FADE.getAnimPair().second)
-                    .replace(R.id.frame, AboutFragment.newInstance(), AboutFragment.TAG)
-                    .commit()
-        }
-    }
-
-    override fun showListFragment() {
+    override fun showWelcomeSlider() {
         supportFragmentManager.beginTransaction()
                 .disallowAddToBackStack()
                 .setCustomAnimations(AnimType.SLIDE.getAnimPair().first, AnimType.SLIDE.getAnimPair().second)
-                .replace(R.id.frame, ListFragment.newInstance(), ListFragment.TAG)
+                .replace(R.id.frame, WelcomeFragment.newInstance(), WelcomeFragment.TAG)
                 .commit()
     }
 
@@ -85,8 +70,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     enum class AnimType {
         SLIDE,
         FADE;
+
         fun getAnimPair(): Pair<Int, Int> {
-            return when(this) {
+            return when (this) {
                 SLIDE -> Pair(R.anim.slide_left, R.anim.slide_right)
                 FADE -> Pair(R.anim.fade_in, R.anim.fade_out)
             }

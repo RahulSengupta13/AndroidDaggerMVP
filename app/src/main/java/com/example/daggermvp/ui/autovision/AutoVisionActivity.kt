@@ -27,9 +27,8 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_vision)
-        title = "Know your image"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        title = "Know your image"
         injectDependency()
         presenter.attach(this)
 

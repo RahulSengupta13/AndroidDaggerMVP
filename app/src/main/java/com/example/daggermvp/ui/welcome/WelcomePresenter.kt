@@ -1,15 +1,11 @@
-package com.example.daggermvp.ui.main
+package com.example.daggermvp.ui.welcome
 
 import io.reactivex.disposables.CompositeDisposable
 
-class MainPresenter: MainContract.Presenter {
+class WelcomePresenter: WelcomeContract.Presenter {
 
     private val disposables = CompositeDisposable()
-    private lateinit var view: MainContract.View
-
-    override fun onDrawerOptionAboutClick() {
-        view.showAboutFragment()
-    }
+    private lateinit var view: WelcomeContract.View
 
     override fun onAutoVisionClick() {
         view.launchAutoVisionActivity()
@@ -23,8 +19,8 @@ class MainPresenter: MainContract.Presenter {
         disposables.clear()
     }
 
-    override fun attach(view: MainContract.View) {
+    override fun attach(view: WelcomeContract.View) {
         this.view = view
-        view.showListFragment()
+        view.showWelcomeSlider()
     }
 }
