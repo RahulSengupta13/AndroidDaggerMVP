@@ -7,8 +7,8 @@ import android.view.Menu
 import android.view.View
 import android.view.WindowManager
 import com.example.daggermvp.R
-import com.example.daggermvp.dagger.component.DaggerActivityComponent
-import com.example.daggermvp.dagger.module.ActivityModule
+import com.example.daggermvp.dagger.component.DaggerWelcomeActivityComponent
+import com.example.daggermvp.dagger.module.WelcomeActivityModule
 import com.example.daggermvp.ui.aboutfragment.AboutFragment
 import com.example.daggermvp.ui.autovision.AutoVisionActivity
 import com.example.daggermvp.ui.welcomefragment.WelcomeFragment
@@ -48,8 +48,8 @@ class WelcomeActivity : AppCompatActivity(), WelcomeContract.View {
     }
 
     private fun injectDependency() {
-        val activityComponent = DaggerActivityComponent.builder()
-                .activityModule(ActivityModule(this))
+        val activityComponent = DaggerWelcomeActivityComponent.builder()
+                .welcomeActivityModule(WelcomeActivityModule(this))
                 .build()
         activityComponent.inject(this)
 
