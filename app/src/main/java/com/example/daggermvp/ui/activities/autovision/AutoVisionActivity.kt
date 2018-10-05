@@ -6,22 +6,23 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import com.example.daggermvp.dagger.component.DaggerAutoVisionComponent
 import com.example.daggermvp.dagger.module.AutoVisionModule
 import kotlinx.android.synthetic.main.activity_auto_vision.*
 import javax.inject.Inject
 import com.example.daggermvp.utils.PermissionUtils
 import android.provider.MediaStore
-import android.support.v4.content.FileProvider
+import androidx.core.content.FileProvider
 import java.io.File
 import android.os.Environment
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
+import android.view.View
 import com.example.daggermvp.R
 
 class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
@@ -29,7 +30,7 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
     @Inject
     lateinit var presenter: AutoVisionContract.Presenter
 
-    private lateinit var drawer: DrawerLayout
+    private lateinit var drawer: androidx.drawerlayout.widget.DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,11 +84,13 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
         when (requestCode) {
             GALLERY_IMAGE_REQUEST -> {
                 if (data != null && resultCode == Activity.RESULT_OK) {
+                    imagePlaceholder.visibility = View.GONE
                     presenter.uploadImage(data.data)
                 }
             }
             CAMERA_IMAGE_REQUEST -> {
                 if (resultCode == Activity.RESULT_OK) {
+                    imagePlaceholder.visibility = View.GONE
                     val photoUri = FileProvider.getUriForFile(this, applicationContext.packageName + ".provider", getCameraFile())
                     presenter.uploadImage(photoUri)
                 }

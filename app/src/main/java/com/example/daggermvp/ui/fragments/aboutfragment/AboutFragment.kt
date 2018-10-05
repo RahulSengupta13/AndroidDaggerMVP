@@ -1,7 +1,7 @@
 package com.example.daggermvp.ui.fragments.aboutfragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import com.example.daggermvp.dagger.module.WelcomeFragmentModule
 import kotlinx.android.synthetic.main.fragment_about.*
 import javax.inject.Inject
 
-class AboutFragment : Fragment(), AboutContract.View {
+class AboutFragment : androidx.fragment.app.Fragment(), AboutContract.View {
 
     @Inject lateinit var presenter: AboutContract.Presenter
     private lateinit var rootView: View

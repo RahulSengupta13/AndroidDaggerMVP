@@ -1,8 +1,7 @@
 package com.example.daggermvp.ui.activities.autovision
 
-import android.app.ProgressDialog
+import android.app.AlertDialog
 import android.os.AsyncTask
-import android.support.v7.widget.CardView
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -21,14 +20,15 @@ class LabelDetectionTask constructor(activity: AutoVisionActivity, private val m
 
     private val mActivityWeakReference: WeakReference<AutoVisionActivity> = WeakReference(activity)
 
-    private var progressDialog: ProgressDialog? = null
+    private var alertDialog: AlertDialog? = null
 
     override fun onPreExecute() {
         super.onPreExecute()
         val activity = mActivityWeakReference.get()
-        progressDialog = ProgressDialog(activity)
-        progressDialog?.setMessage(activity?.getString(R.string.fetching_results))
-        progressDialog?.show()
+        alertDialog = AlertDialog.Builder(activity)
+                .apply { setView(R.layout.loading_dialog_layout) }
+                .create()
+        alertDialog?.show()
     }
 
     override fun doInBackground(vararg params: Any): BatchAnnotateImagesResponse? {
@@ -46,13 +46,13 @@ class LabelDetectionTask constructor(activity: AutoVisionActivity, private val m
     }
 
     override fun onPostExecute(result: BatchAnnotateImagesResponse) {
-        progressDialog?.dismiss()
+        alertDialog?.dismiss()
         val activity = mActivityWeakReference.get()
 
         if (activity != null && !activity.isFinishing) {
             if (result.responses[0]?.labelAnnotations?.isNotEmpty() == true) {
                 ResultManager.labelAnnotations = result.responses[0].labelAnnotations
-                val predictionLayout = activity.findViewById<CardView>(R.id.labelLayout)
+                val predictionLayout = activity.findViewById<androidx.cardview.widget.CardView>(R.id.labelLayout)
                 predictionLayout.visibility = View.VISIBLE
                 val textView = predictionLayout.findViewById<TextView>(R.id.predictionTextView)
                 textView.text = activity.getString(R.string.result_predictions, result.responses[0].labelAnnotations.size)
@@ -63,7 +63,7 @@ class LabelDetectionTask constructor(activity: AutoVisionActivity, private val m
 
             if (result.responses[0]?.logoAnnotations?.isNotEmpty() == true) {
                 ResultManager.logoAnnotations = result.responses[0].logoAnnotations
-                val logoLayout = activity.findViewById<CardView>(R.id.logoLayout)
+                val logoLayout = activity.findViewById<androidx.cardview.widget.CardView>(R.id.logoLayout)
                 logoLayout.visibility = View.VISIBLE
                 val textView = logoLayout.findViewById<TextView>(R.id.logosTextView)
                 textView.text = activity.getString(R.string.result_logos, result.responses[0].logoAnnotations.size)

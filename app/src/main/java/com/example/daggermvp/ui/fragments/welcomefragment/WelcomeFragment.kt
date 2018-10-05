@@ -1,8 +1,8 @@
 package com.example.daggermvp.ui.fragments.welcomefragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_welcome.*
 import com.example.daggermvp.ui.activities.autovision.AutoVisionActivity
 import com.example.daggermvp.R
 
-class WelcomeFragment : Fragment(), WelcomeFragmentContract.View {
+class WelcomeFragment : androidx.fragment.app.Fragment(), WelcomeFragmentContract.View {
 
     @Inject
     lateinit var presenter: WelcomeFragmentContract.Presenter
@@ -48,7 +48,7 @@ class WelcomeFragment : Fragment(), WelcomeFragmentContract.View {
                               savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_welcome, container, false)
 
-        val viewPager = rootView.findViewById<ViewPager>(R.id.viewPager)
+        val viewPager = rootView.findViewById<androidx.viewpager.widget.ViewPager>(R.id.viewPager)
         val btnSkip = rootView.findViewById<Button>(R.id.buttonSkip)
         val btnNext = rootView.findViewById<Button>(R.id.buttonNext)
 
@@ -118,7 +118,7 @@ class WelcomeFragment : Fragment(), WelcomeFragmentContract.View {
         }
     }
 
-    private var viewPagerPageChangeListener: ViewPager.OnPageChangeListener = object : ViewPager.OnPageChangeListener {
+    private var viewPagerPageChangeListener: androidx.viewpager.widget.ViewPager.OnPageChangeListener = object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
 
         override fun onPageSelected(position: Int) {
             addBottomDots(position)
