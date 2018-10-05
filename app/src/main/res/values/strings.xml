@@ -4,9 +4,10 @@
     <string name="about_text"> Hello.\n\nI\'m Rahul, mobile application developer.\n\nThis is an example application that shows how to use MVP with Dagger2 and Retrofit in Kotlin.
         It fetches data from typicode api (https://jsonplaceholder.typicode.com)\n\nPlease check the source code for further information.\n\nThank you.\n\n Rahul</string>
     <string name="info">Info</string>
-    <string name="auto_vision">Auto Vision</string>
-    <string name="btn_gallery">Upload</string>
-    <string name="header_text">Upload a picture to see results</string>
+    <string name="auto_vision">Know your image</string>
+    <string name="auto_vision_title">Want to know what you\'re looking at?</string>
+    <string name="btn_gallery">Upload Image</string>
+    <string name="header_text">Upload a picture and see what I can find!</string>
     <string name="logo_image">Logo image</string>
     <string name="image_source">Select an image source</string>
     <string name="camera">Camera</string>
@@ -24,5 +25,17 @@
     <string name="slide_2_desc">Now save every image you\'ve ever searched via the app!</string>
     <string name="slide_3_title">Capture or Upload</string>
     <string name="slide_3_desc">You can either browse for an image from the gallery or straight up click from the camera!</string>
+
+    <!--Drawer Accessibility strings-->
+    <string name="drawer_open">Open Navigation Drawer</string>
+    <string name="drawer_close">Close Navigation Drawer</string>
+    <string name="image_content">image</string>
+
+    <!--Result Strings-->
+    <string name="result_predictions">I found %1$d label(s) related to your image.</string>
+    <string name="result_logos">I also found %1$d product(s) in your image.</string>
+    <string name="result_web">I also went ahead and found %1$d web result(s) with your image in them.</string>
+    <string name="result_string">From what I can tell, it is related to:</string>
+    <string name="result_title">Your Image:</string>
 
 </resources>

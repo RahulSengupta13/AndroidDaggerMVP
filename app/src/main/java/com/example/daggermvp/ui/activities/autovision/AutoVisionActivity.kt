@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,10 @@ import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import java.io.File
 import android.os.Environment
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.Toolbar
+import android.view.MenuItem
 import com.example.daggermvp.R
 
 class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
@@ -24,11 +29,24 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
     @Inject
     lateinit var presenter: AutoVisionContract.Presenter
 
+    private lateinit var drawer: DrawerLayout
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_vision)
 
-        title = "Know your image"
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar.title = "Know your image"
+        setSupportActionBar(toolbar)
+
+        drawer = findViewById(R.id.drawerLayout)
+        actionBarDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close)
+
+        drawer.addDrawerListener(actionBarDrawerToggle)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+
         injectDependency()
         presenter.attach(this)
 
@@ -39,6 +57,24 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
                     .setNegativeButton(getString(R.string.gallery)) { _, _ -> startGalleryChooser() }
                     .create()
             builder.show()
+        }
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        actionBarDrawerToggle.syncState()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+        actionBarDrawerToggle.onConfigurationChanged(newConfig)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            true
+        } else {
+            super.onOptionsItemSelected(item)
         }
     }
 
