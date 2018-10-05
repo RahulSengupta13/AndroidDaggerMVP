@@ -42,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:contentDescription="@string/image_content"
-            android:src="@drawable/right_carat"
+            android:src="@android:drawable/ic_menu_info_details"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintHorizontal_weight="1"

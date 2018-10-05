@@ -28,6 +28,7 @@
         <item name="android:paddingEnd">16dp</item>
     </style>
 
+    <!--TextView Styles-->
     <style name="HeaderLight">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textAlignment">center</item>
@@ -37,10 +38,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="Header32Light" parent="HeaderLight">
-        <item name="android:textSize">32sp</item>
+    <style name="Header26Light" parent="HeaderLight">
+        <item name="android:textSize">26sp</item>
     </style>
-
-
-
 </resources>

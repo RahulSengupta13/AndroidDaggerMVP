@@ -72,11 +72,11 @@
 
                             <TextView
                                 android:id="@+id/textView"
-                                style="@style/Header32Light"
+                                style="@style/Header26Light"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
-                                android:text="@string/auto_vision"
+                                android:text="@string/auto_vision_title"
                                 app:layout_constraintEnd_toEndOf="@id/endGuideline"
                                 app:layout_constraintStart_toStartOf="@id/startGuideline"
                                 app:layout_constraintTop_toTopOf="parent" />
