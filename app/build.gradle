@@ -66,6 +66,7 @@ dependencies {
     // Google Cloud Vision API
     implementation 'com.google.android.gms:play-services-base:15.0.1'
     implementation 'com.google.android.gms:play-services-auth:16.0.0'
+//    implementation 'com.google.cloud:google-cloud-vision:1.40.0'
     implementation 'com.google.apis:google-api-services-vision:v1-rev16-1.22.0'
     implementation('com.google.api-client:google-api-client-android:1.22.0') {
         exclude module: 'httpclient'

@@ -9,6 +9,7 @@ import com.example.daggermvp.BuildConfig
 import com.example.daggermvp.utils.BitmapUtils
 import java.io.IOException
 import com.example.daggermvp.utils.PackageManagerUtils
+import com.example.daggermvp.utils.ResultManager
 import com.google.api.client.extensions.android.http.AndroidHttp
 import com.google.api.client.json.gson.GsonFactory
 import com.google.api.services.vision.v1.Vision
@@ -67,11 +68,11 @@ class AutoVisionRepositoryImpl constructor(private val activity: Activity) : Aut
                         }
                         add(logoDetection)
 
-//                        val webDetection = Feature().apply {
-//                            type = "WEB_DETECTION"
-//                            maxResults = MAX_LOGO_RESULTS
-//                        }
-//                        add(webDetection)
+                        val webDetection = Feature().apply {
+                            type = "WEB_DETECTION"
+                            maxResults = MAX_WEB_RESULTS
+                        }
+                        add(webDetection)
                     }
                 }
                 add(annotateImageRequest)
@@ -98,6 +99,7 @@ class AutoVisionRepositoryImpl constructor(private val activity: Activity) : Aut
 
     override fun uploadImage(uri: Uri?) {
         if (uri != null) {
+            ResultManager.photoUri = uri
             try {
                 val bitmap = BitmapUtils.scaleBitmapDown(
                         MediaStore.Images.Media.getBitmap(activity.contentResolver, uri),
@@ -127,6 +129,7 @@ class AutoVisionRepositoryImpl constructor(private val activity: Activity) : Aut
     companion object {
         private const val MAX_LABEL_RESULTS = 10
         private const val MAX_LOGO_RESULTS = 10
+        private const val MAX_WEB_RESULTS = 10
         private const val MAX_DIMENSION = 1200
 
         private const val CLOUD_VISION_API_KEY = BuildConfig.API_KEY

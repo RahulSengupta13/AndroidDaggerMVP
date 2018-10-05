@@ -36,9 +36,9 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auto_vision)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar_auto_vision)
-        setSupportActionBar(toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.title = "Know your image"
+        setSupportActionBar(toolbar)
 
         drawer = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close)

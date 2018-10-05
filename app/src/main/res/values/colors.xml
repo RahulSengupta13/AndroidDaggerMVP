@@ -28,4 +28,7 @@
         <item>@color/dot_inactive_screen2</item>
         <item>@color/dot_inactive_screen3</item>
     </array>
+
+    <!--Other colors-->
+    <color name="white">#ffffff</color>
 </resources>
