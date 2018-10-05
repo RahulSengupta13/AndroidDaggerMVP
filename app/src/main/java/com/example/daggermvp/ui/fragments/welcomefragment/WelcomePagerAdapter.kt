@@ -3,10 +3,10 @@ package com.example.daggermvp.ui.fragments.welcomefragment
 import android.content.Context
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import android.view.View
 
-class WelcomePagerAdapter(private val activity: Context, private val layouts: Array<Int>) : PagerAdapter() {
+class WelcomePagerAdapter(private val activity: Context, private val layouts: Array<Int>) : androidx.viewpager.widget.PagerAdapter() {
 
     private var layoutInflater: LayoutInflater? = null
 

@@ -3,7 +3,7 @@ package com.example.daggermvp.ui.activities.result
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import com.google.api.services.vision.v1.model.EntityAnnotation
 import kotlinx.android.synthetic.main.result_item_layout.view.*
 import java.util.*
 
-class ResultAdapter constructor(private val context: Context, private val dataSet: MutableList<EntityAnnotation>) : RecyclerView.Adapter<ResultAdapter.ResultViewHolder>() {
+class ResultAdapter constructor(private val context: Context, private val dataSet: MutableList<EntityAnnotation>) : androidx.recyclerview.widget.RecyclerView.Adapter<ResultAdapter.ResultViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ResultAdapter.ResultViewHolder {
         val layout = LayoutInflater.from(p0.context).inflate(R.layout.result_item_layout, p0, false)
@@ -31,5 +31,5 @@ class ResultAdapter constructor(private val context: Context, private val dataSe
         }
     }
 
-    class ResultViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+    class ResultViewHolder(val view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view)
 }

@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.widget.Toolbar
 import com.example.daggermvp.R
 import com.example.daggermvp.dagger.component.DaggerResultComponent
 import com.example.daggermvp.dagger.module.ResultModule
@@ -45,7 +45,7 @@ class ResultActivity : AppCompatActivity() {
                 MAX_DIMENSION) ?: return
         resultImageView.setImageBitmap(bitmap)
 
-        resultRecyclerView.layoutManager = LinearLayoutManager(this)
+        resultRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
 
         when(intent?.getSerializableExtra(INTENT_TYPE)) {
             ResultType.LABEL -> {

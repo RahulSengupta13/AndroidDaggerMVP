@@ -37,5 +37,6 @@
     <string name="result_web">I also went ahead and found %1$d web result(s) with your image in them.</string>
     <string name="result_string">From what I can tell, it is related to:</string>
     <string name="result_title">Your Image:</string>
+    <string name="loading_dialog_text">Processing your image…</string>
 
 </resources>

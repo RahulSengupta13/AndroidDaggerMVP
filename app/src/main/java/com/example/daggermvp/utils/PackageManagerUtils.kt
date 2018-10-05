@@ -3,7 +3,7 @@ package com.example.daggermvp.utils
 import com.google.common.io.BaseEncoding
 import android.content.pm.PackageManager
 import android.content.pm.Signature
-import android.support.annotation.NonNull
+import androidx.annotation.NonNull
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
