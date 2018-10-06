@@ -38,5 +38,8 @@
     <string name="result_string">From what I can tell, it is related to:</string>
     <string name="result_title">Your Image:</string>
     <string name="loading_dialog_text">Processing your image…</string>
+    <string name="app_title">PhotoDoc</string>
+    <string name="menu_about">About</string>
+    <string name="menu_version">Version: 1.0.0</string>
 
 </resources>

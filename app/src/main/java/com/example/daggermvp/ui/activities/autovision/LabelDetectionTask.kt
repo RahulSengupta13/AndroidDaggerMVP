@@ -12,6 +12,7 @@ import com.example.daggermvp.utils.ResultManager
 import com.google.api.client.googleapis.json.GoogleJsonResponseException
 import com.google.api.services.vision.v1.Vision
 import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse
+import com.google.api.services.vision.v1.model.EntityAnnotation
 import java.io.IOException
 import java.lang.ref.WeakReference
 import java.util.*
@@ -120,4 +121,6 @@ class LabelDetectionTask constructor(activity: AutoVisionActivity, private val m
             return message.toString()
         }
     }
+
+    data class Entity(private val url: String?, private val title: String?)
 }

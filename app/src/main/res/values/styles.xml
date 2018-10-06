@@ -15,11 +15,14 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/offWhite</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <!--<item name="android:fontFamily">sans-serif-light</item>-->
+    </style>
 
     <style name="PrimaryColoredButton" parent="Base.Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/colorAccent</item>
@@ -59,5 +62,11 @@
 
     <style name="Body14Light" parent="BodyLight">
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="NavHeader24Title">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/offWhite</item>
+        <item name="android:textSize">24sp</item>
     </style>
 </resources>

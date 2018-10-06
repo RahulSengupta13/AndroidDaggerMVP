@@ -6,26 +6,27 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
-import com.example.daggermvp.dagger.component.DaggerAutoVisionComponent
-import com.example.daggermvp.dagger.module.AutoVisionModule
-import kotlinx.android.synthetic.main.activity_auto_vision.*
-import javax.inject.Inject
-import com.example.daggermvp.utils.PermissionUtils
-import android.provider.MediaStore
-import androidx.core.content.FileProvider
-import java.io.File
 import android.os.Environment
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.widget.Toolbar
+import android.provider.MediaStore
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.FileProvider
+import com.example.daggermvp.dagger.component.DaggerAutoVisionComponent
+import com.example.daggermvp.dagger.module.AutoVisionModule
+import com.example.daggermvp.utils.PermissionUtils
+import kotlinx.android.synthetic.main.activity_auto_vision.*
+import java.io.File
+import javax.inject.Inject
 import com.example.daggermvp.R
+import com.google.android.material.navigation.NavigationView
 
-class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
+class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, NavigationView.OnNavigationItemSelectedListener {
 
     @Inject
     lateinit var presenter: AutoVisionContract.Presenter
@@ -38,15 +39,15 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
         setContentView(R.layout.activity_auto_vision)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.title = "Know your image"
+        toolbar.title = "PhotoDoc"
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
 
         drawer = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close)
-
+        navigationView.setNavigationItemSelectedListener(this)
         drawer.addDrawerListener(actionBarDrawerToggle)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
 
         injectDependency()
         presenter.attach(this)
@@ -94,6 +95,30 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View {
                     val photoUri = FileProvider.getUriForFile(this, applicationContext.packageName + ".provider", getCameraFile())
                     presenter.uploadImage(photoUri)
                 }
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            CAMERA_PERMISSIONS_REQUEST -> if (PermissionUtils.permissionGranted(requestCode, CAMERA_PERMISSIONS_REQUEST, grantResults)) {
+                startCamera()
+            }
+            GALLERY_PERMISSIONS_REQUEST -> if (PermissionUtils.permissionGranted(requestCode, GALLERY_PERMISSIONS_REQUEST, grantResults)) {
+                startGalleryChooser()
+            }
+        }
+    }
+
+    override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
+        return when (menuItem.itemId) {
+            R.id.about -> {
+                Toast.makeText(this, "About Clicked!", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> {
+                true
             }
         }
     }

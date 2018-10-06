@@ -5,9 +5,9 @@
     <color name="colorAccent">#0D6684</color>
 
     <!-- Screens background color-->
-    <color name="bg_slider_screen1">#E9F1F7</color>
-    <color name="bg_slider_screen2">#E9F1F7</color>
-    <color name="bg_slider_screen3">#E9F1F7</color>
+    <color name="bg_slider_screen1">@color/offWhite</color>
+    <color name="bg_slider_screen2">@color/offWhite</color>
+    <color name="bg_slider_screen3">@color/offWhite</color>
 
     <!-- dots inactive colors -->
     <color name="dot_inactive_screen1">#094D63</color>
@@ -33,4 +33,5 @@
 
     <!--Other colors-->
     <color name="white">#ffffff</color>
+    <color name="offWhite">#E9F1F7</color>
 </resources>
