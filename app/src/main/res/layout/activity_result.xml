@@ -1,89 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/resultAppBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="24dp">
+    android:background="@android:color/background_light"
+    android:fitsSystemWindows="true">
 
-    <include
-        android:id="@+id/included"
-        layout="@layout/app_bar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/collapsing"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="300dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/resultImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/image_content"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/resultToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.cardview.widget.CardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            app:cardUseCompatPadding="true">
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startGuideline"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="24dp">
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="8dp" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/startGuideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_begin="8dp" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="8dp" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/endGuideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_end="8dp" />
-
-                <TextView
-                    android:id="@+id/resultTitle"
-                    style="@style/Header20Light"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/result_title"
-                    app:layout_constraintEnd_toEndOf="@id/endGuideline"
-                    app:layout_constraintStart_toStartOf="@id/startGuideline"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/resultImageView"
-                    android:layout_width="0dp"
-                    android:layout_height="320dp"
-                    android:layout_marginTop="8dp"
-                    android:contentDescription="@string/image_content"
-                    app:layout_constraintEnd_toEndOf="@id/endGuideline"
-                    app:layout_constraintStart_toStartOf="@id/startGuideline"
-                    app:layout_constraintTop_toBottomOf="@id/resultTitle" />
-
-                <TextView
-                    android:id="@+id/resultHeader"
-                    style="@style/Header20Light"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/result_string"
-                    app:layout_constraintEnd_toEndOf="@id/endGuideline"
-                    app:layout_constraintStart_toStartOf="@id/startGuideline"
-                    app:layout_constraintTop_toBottomOf="@id/resultImageView" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/resultRecyclerView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="@id/endGuideline"
-                    app:layout_constraintStart_toStartOf="@id/startGuideline"
-                    app:layout_constraintTop_toBottomOf="@id/resultHeader" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-    </ScrollView>
-</LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/resultRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
