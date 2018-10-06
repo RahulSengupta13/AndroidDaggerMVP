@@ -17,14 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/CustomTheme">
 
+        <activity android:name=".ui.activities.about.AboutActivity"
+            android:parentActivityName=".ui.activities.autovision.AutoVisionActivity"/>
         <activity
             android:name=".ui.activities.result.ResultActivity"
             android:parentActivityName=".ui.activities.autovision.AutoVisionActivity" />
-
         <activity
             android:name=".ui.activities.autovision.AutoVisionActivity"
             android:launchMode="singleTask" />
-
         <activity
             android:name=".ui.activities.welcome.WelcomeActivity"
             android:theme="@style/CustomTheme">
@@ -45,4 +45,5 @@
                 android:resource="@xml/provider_paths" />
         </provider>
     </application>
+
 </manifest>

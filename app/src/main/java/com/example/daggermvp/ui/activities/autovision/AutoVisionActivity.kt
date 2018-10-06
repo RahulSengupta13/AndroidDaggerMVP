@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_auto_vision.*
 import java.io.File
 import javax.inject.Inject
 import com.example.daggermvp.R
+import com.example.daggermvp.ui.activities.about.AboutActivity
 import com.google.android.material.navigation.NavigationView
 
 class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, NavigationView.OnNavigationItemSelectedListener {
@@ -114,7 +115,7 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, Navigat
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.about -> {
-                Toast.makeText(this, "About Clicked!", Toast.LENGTH_SHORT).show()
+                startActivity(AboutActivity.getIntent(this))
                 true
             }
             else -> {
