@@ -39,15 +39,16 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/logosImageView"
             android:layout_width="0dp"
-            android:layout_height="64dp"
+            android:layout_height="72dp"
             android:cropToPadding="true"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
-            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/logosTextView"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="next.json" />
+            app:lottie_fileName="next.json"
+            app:lottie_loop="true" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
