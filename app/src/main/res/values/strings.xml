@@ -19,12 +19,12 @@
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
-    <string name="slide_1_title">Powerful insight into images</string>
-    <string name="slide_1_desc">Get powerful insight from your images: Text, Logos, Products and more!</string>
-    <string name="slide_2_title">Save your searches</string>
-    <string name="slide_2_desc">Now save every image you\'ve ever searched via the app!</string>
+    <string name="slide_1_title">Powerful insight from images</string>
+    <string name="slide_1_desc">Get information like text, logos, products and more from images!</string>
+    <string name="slide_2_title">Want to know a dog\'s breed?</string>
+    <string name="slide_2_desc">I\'ve got you covered!</string>
     <string name="slide_3_title">Capture or Upload</string>
-    <string name="slide_3_desc">You can either browse for an image from the gallery or straight up click from the camera!</string>
+    <string name="slide_3_desc">You can either browse for an image or straight up click from the camera!</string>
 
     <!--Drawer Accessibility strings-->
     <string name="drawer_open">Open Navigation Drawer</string>

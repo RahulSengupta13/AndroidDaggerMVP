@@ -8,12 +8,12 @@
 
     <TextView
         android:id="@+id/textView2"
+        style="@style/Header30Light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
         android:layout_marginBottom="29dp"
         android:text="@string/slide_1_title"
-        style="@style/Header30Light"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,14 +35,15 @@
 
     <TextView
         android:id="@+id/textView3"
+        style="@style/Header16Light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="179dp"
         android:paddingLeft="@dimen/desc_padding"
         android:paddingRight="@dimen/desc_padding"
         android:text="@string/slide_1_desc"
-        style="@style/Header16Light"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
