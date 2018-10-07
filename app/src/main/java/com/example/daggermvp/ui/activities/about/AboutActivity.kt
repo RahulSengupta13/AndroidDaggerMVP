@@ -1,5 +1,6 @@
 package com.example.daggermvp.ui.activities.about
 
+import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -26,7 +27,7 @@ class AboutActivity : AppCompatActivity(), AboutContract.View, AppBarLayout.OnOf
         if (percentage >= PERCENTAGE_TO_ANIMATE_AVATAR && mIsAvatarShown) {
             mIsAvatarShown = false
             aboutImage.animate()
-                    .scaleY(0.45f).scaleX(0.45f)
+                    .scaleY(0.25f).scaleX(0.25f)
                     .setDuration(200)
                     .start()
         }
@@ -55,8 +56,13 @@ class AboutActivity : AppCompatActivity(), AboutContract.View, AppBarLayout.OnOf
         aboutAppBarLayout.addOnOffsetChangedListener(this)
         mMaxScrollSize = aboutAppBarLayout.totalScrollRange
 
-
         injectDependency()
+
+        authorWebsite.setOnClickListener {
+            val intent = Intent(Intent.ACTION_WEB_SEARCH)
+            intent.putExtra(SearchManager.QUERY, authorWebsite.text)
+            startActivity(intent)
+        }
     }
 
     private fun injectDependency() {

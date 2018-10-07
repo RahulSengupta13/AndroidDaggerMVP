@@ -45,6 +45,7 @@
 
             <TextView
                 style="@style/Header20Light"
+                android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/author_name"
@@ -52,9 +53,10 @@
                 android:textColor="@color/offWhite" />
 
             <TextView
+                android:id="@+id/authorWebsite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
                 style="@style/Header16Light"
                 android:text="@string/author_website"
@@ -65,8 +67,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/aboutImage"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_gravity="center_horizontal"
         android:cropToPadding="true"
         android:elevation="8dp"

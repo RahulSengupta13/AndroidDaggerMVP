@@ -11,7 +11,6 @@ import com.example.daggermvp.dagger.component.DaggerFullScreenImageComponent
 import com.example.daggermvp.dagger.module.FullScreenImageModule
 import com.example.daggermvp.utils.ResultManager
 import kotlinx.android.synthetic.main.activity_full_screen_image.*
-import kotlinx.android.synthetic.main.app_bar.*
 import javax.inject.Inject
 
 class FullScreenImageActivity : AppCompatActivity() {
