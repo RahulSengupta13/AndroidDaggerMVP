@@ -94,7 +94,7 @@
                                 app:layout_constraintStart_toStartOf="@id/startGuideline"
                                 app:layout_constraintTop_toBottomOf="@id/textView" />
 
-                            <ImageView
+                            <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
                                 android:id="@+id/galleryImageView"
                                 android:layout_width="0dp"
                                 android:layout_height="320dp"

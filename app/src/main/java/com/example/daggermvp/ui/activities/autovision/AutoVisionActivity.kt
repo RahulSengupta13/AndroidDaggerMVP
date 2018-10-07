@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.FileProvider
+import com.davemorrissey.labs.subscaleview.ImageSource
 import com.example.daggermvp.dagger.component.DaggerAutoVisionComponent
 import com.example.daggermvp.dagger.module.AutoVisionModule
 import com.example.daggermvp.utils.PermissionUtils
@@ -125,7 +126,7 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, Navigat
     }
 
     override fun setResultImage(bitmap: Bitmap) {
-        galleryImageView.setImageBitmap(bitmap)
+        galleryImageView.setImage(ImageSource.bitmap(bitmap))
     }
 
     private fun startGalleryChooser() {

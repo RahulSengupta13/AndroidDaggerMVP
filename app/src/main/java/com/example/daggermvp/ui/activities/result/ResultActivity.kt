@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar
 import com.example.daggermvp.R
 import com.example.daggermvp.dagger.component.DaggerResultComponent
 import com.example.daggermvp.dagger.module.ResultModule
+import com.example.daggermvp.ui.activities.fullscreenimage.FullScreenImageActivity
 import com.example.daggermvp.utils.BitmapUtils
 import com.example.daggermvp.utils.ResultManager
 import kotlinx.android.synthetic.main.activity_result.*
@@ -17,7 +18,7 @@ import javax.inject.Inject
 class ResultActivity : AppCompatActivity() {
 
     companion object {
-        private const val MAX_DIMENSION = 1200
+        const val MAX_DIMENSION = 1200
         private const val INTENT_TYPE = "TYPE"
 
         fun getIntent(context: Context, resultType: ResultType) = Intent(context, ResultActivity::class.java).apply {
@@ -43,10 +44,11 @@ class ResultActivity : AppCompatActivity() {
                 MediaStore.Images.Media.getBitmap(contentResolver, ResultManager.photoUri),
                 MAX_DIMENSION) ?: return
         resultImageView.setImageBitmap(bitmap)
+        resultImageView.setOnClickListener { startActivity(FullScreenImageActivity.getIntent(this)) }
 
         resultRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
 
-        when(intent?.getSerializableExtra(INTENT_TYPE)) {
+        when (intent?.getSerializableExtra(INTENT_TYPE)) {
             ResultType.LABEL -> {
                 resultRecyclerView.adapter = ResultAdapter(this, ResultManager.labelAnnotations)
             }
