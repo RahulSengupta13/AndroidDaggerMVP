@@ -18,28 +18,6 @@ class AboutActivity : AppCompatActivity(), AboutContract.View, AppBarLayout.OnOf
     private var mMaxScrollSize: Int = 0
     private var mIsAvatarShown = true
 
-    override fun onOffsetChanged(appBarLayout: AppBarLayout, i: Int) {
-        if (mMaxScrollSize == 0)
-            mMaxScrollSize = appBarLayout.totalScrollRange
-
-        val percentage = Math.abs(i) * 100 / mMaxScrollSize
-
-        if (percentage >= PERCENTAGE_TO_ANIMATE_AVATAR && mIsAvatarShown) {
-            mIsAvatarShown = false
-            aboutImage.animate()
-                    .scaleY(0.25f).scaleX(0.25f)
-                    .setDuration(200)
-                    .start()
-        }
-
-        if (percentage <= PERCENTAGE_TO_ANIMATE_AVATAR && !mIsAvatarShown) {
-            mIsAvatarShown = true
-            aboutImage.animate()
-                    .scaleY(1f).scaleX(1f)
-                    .start()
-        }
-    }
-
     @Inject
     lateinit var presenter: AboutContract.Presenter
 
@@ -62,6 +40,28 @@ class AboutActivity : AppCompatActivity(), AboutContract.View, AppBarLayout.OnOf
             val intent = Intent(Intent.ACTION_WEB_SEARCH)
             intent.putExtra(SearchManager.QUERY, authorWebsite.text)
             startActivity(intent)
+        }
+    }
+
+    override fun onOffsetChanged(appBarLayout: AppBarLayout, i: Int) {
+        if (mMaxScrollSize == 0)
+            mMaxScrollSize = appBarLayout.totalScrollRange
+
+        val percentage = Math.abs(i) * 100 / mMaxScrollSize
+
+        if (percentage >= PERCENTAGE_TO_ANIMATE_AVATAR && mIsAvatarShown) {
+            mIsAvatarShown = false
+            aboutImage.animate()
+                    .scaleY(0.25f).scaleX(0.25f)
+                    .setDuration(200)
+                    .start()
+        }
+
+        if (percentage <= PERCENTAGE_TO_ANIMATE_AVATAR && !mIsAvatarShown) {
+            mIsAvatarShown = true
+            aboutImage.animate()
+                    .scaleY(1f).scaleX(1f)
+                    .start()
         }
     }
 

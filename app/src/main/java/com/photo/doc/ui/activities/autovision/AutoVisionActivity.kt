@@ -13,7 +13,6 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.FileProvider
 import com.davemorrissey.labs.subscaleview.ImageSource
@@ -21,6 +20,7 @@ import com.google.android.material.navigation.NavigationView
 import com.photo.doc.R
 import com.photo.doc.dagger.component.DaggerAutoVisionComponent
 import com.photo.doc.dagger.module.AutoVisionModule
+import com.photo.doc.ui.activities.BaseActivity
 import com.photo.doc.ui.activities.about.AboutActivity
 import com.photo.doc.utils.PermissionUtils
 import com.photo.doc.utils.ResultManager
@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.activity_auto_vision.*
 import java.io.File
 import javax.inject.Inject
 
-class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, NavigationView.OnNavigationItemSelectedListener {
+class AutoVisionActivity : BaseActivity(), AutoVisionContract.View, NavigationView.OnNavigationItemSelectedListener {
 
     @Inject
     lateinit var presenter: AutoVisionContract.Presenter
@@ -46,7 +46,7 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, Navigat
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
-        drawer = findViewById(R.id.drawerLayout)
+        drawer = findViewById(R.id.rootLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close)
         navigationView.setNavigationItemSelectedListener(this)
         drawer.addDrawerListener(actionBarDrawerToggle)
@@ -125,6 +125,11 @@ class AutoVisionActivity : AppCompatActivity(), AutoVisionContract.View, Navigat
                 true
             }
         }
+    }
+
+    override fun onNetworkConnectionChanged(isConnected: Boolean) {
+        super.onNetworkConnectionChanged(isConnected)
+        btnGallery.isEnabled = isConnected
     }
 
     override fun setResultImage(bitmap: Bitmap) {
