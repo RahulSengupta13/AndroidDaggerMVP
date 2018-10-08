@@ -127,9 +127,9 @@ class AutoVisionRepositoryImpl constructor(private val activity: Activity) : Aut
     }
 
     companion object {
-        private const val MAX_LABEL_RESULTS = 10
+        private const val MAX_LABEL_RESULTS = 15
         private const val MAX_LOGO_RESULTS = 10
-        private const val MAX_WEB_RESULTS = 10
+        private const val MAX_WEB_RESULTS = 50
         private const val MAX_DIMENSION = 1200
 
         private const val CLOUD_VISION_API_KEY = BuildConfig.API_KEY

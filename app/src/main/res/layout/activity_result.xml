@@ -23,7 +23,7 @@
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <ImageView
+            <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
                 android:id="@+id/resultImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

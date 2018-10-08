@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.os.AsyncTask
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.google.api.client.googleapis.json.GoogleJsonResponseException
@@ -56,7 +57,8 @@ class LabelDetectionTask constructor(activity: AutoVisionActivity, private val m
                 predictionLayout.visibility = View.VISIBLE
                 val textView = predictionLayout.findViewById<TextView>(R.id.predictionTextView)
                 textView.text = activity.getString(R.string.result_predictions, result.responses[0].labelAnnotations.size)
-                predictionLayout.setOnClickListener {
+                val detailsButton = activity.findViewById<Button>(R.id.predictionDetails)
+                detailsButton.setOnClickListener {
                     activity.startActivity(ResultActivity.getIntent(activity, ResultActivity.ResultType.LABEL))
                 }
             }
@@ -67,7 +69,8 @@ class LabelDetectionTask constructor(activity: AutoVisionActivity, private val m
                 logoLayout.visibility = View.VISIBLE
                 val textView = logoLayout.findViewById<TextView>(R.id.logosTextView)
                 textView.text = activity.getString(R.string.result_logos, result.responses[0].logoAnnotations.size)
-                logoLayout.setOnClickListener {
+                val detailsButton = activity.findViewById<Button>(R.id.logoDetails)
+                detailsButton.setOnClickListener {
                     activity.startActivity(ResultActivity.getIntent(activity, ResultActivity.ResultType.LOGO))
                 }
             }
@@ -78,7 +81,8 @@ class LabelDetectionTask constructor(activity: AutoVisionActivity, private val m
                 webLayout.visibility = View.VISIBLE
                 val textView = activity.findViewById<TextView>(R.id.webTextView)
                 textView.text = activity.getString(R.string.result_web, result.responses[0]?.webDetection?.pagesWithMatchingImages?.size)
-                webLayout.setOnClickListener {
+                val detailsButton = activity.findViewById<Button>(R.id.webDetails)
+                detailsButton.setOnClickListener {
                     activity.startActivity(ResultActivity.getIntent(activity, ResultActivity.ResultType.WEB_MATCHED))
                 }
             }

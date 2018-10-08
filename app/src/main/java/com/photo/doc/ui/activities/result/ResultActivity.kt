@@ -7,6 +7,7 @@ import android.provider.MediaStore
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.davemorrissey.labs.subscaleview.ImageSource
 import com.photo.doc.R
 import com.photo.doc.dagger.component.DaggerResultComponent
 import com.photo.doc.dagger.module.ResultModule
@@ -35,8 +36,8 @@ class ResultActivity : AppCompatActivity(), ResultContract.View {
         val bitmap = BitmapUtils.scaleBitmapDown(
                 MediaStore.Images.Media.getBitmap(contentResolver, ResultManager.photoUri),
                 MAX_DIMENSION) ?: return
-        resultImageView.setImageBitmap(bitmap)
-        resultImageView.setOnClickListener { startActivity(FullScreenImageActivity.getIntent(this)) }
+        resultImageView.setImage(ImageSource.bitmap(bitmap))
+//        resultImageView.setOnClickListener { startActivity(FullScreenImageActivity.getIntent(this)) }
 
         resultRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
 

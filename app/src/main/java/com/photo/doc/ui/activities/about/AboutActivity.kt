@@ -73,7 +73,7 @@ class AboutActivity : AppCompatActivity(), AboutContract.View, AppBarLayout.OnOf
     }
 
     companion object {
-        private const val PERCENTAGE_TO_ANIMATE_AVATAR = 20
+        private const val PERCENTAGE_TO_ANIMATE_AVATAR = 60
         fun getIntent(context: Context) = Intent(context, AboutActivity::class.java)
     }
 }

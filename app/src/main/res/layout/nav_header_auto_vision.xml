@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="160dp">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/nav_header_image" />
+    android:layout_height="160dp"
+    android:background="@color/colorPrimaryDark">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/nav_header"
@@ -38,6 +32,4 @@
             android:text="@string/app_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
     </LinearLayout>
-
 </FrameLayout>
-
