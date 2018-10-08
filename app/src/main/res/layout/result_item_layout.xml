@@ -28,19 +28,19 @@
 
         <TextView
             android:id="@+id/resultDataTextView"
-            style="@style/Body14Light"
+            style="@style/Body14LightCenter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/resultDataSearchImage"
+            app:layout_constraintEnd_toStartOf="@id/viewWebsite"
             app:layout_constraintHorizontal_weight="2"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Sample text" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/resultDataSearchImage"
+            android:id="@+id/viewWebsite"
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:cropToPadding="true"

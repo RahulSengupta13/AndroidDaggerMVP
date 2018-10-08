@@ -44,21 +44,21 @@
             app:layout_scrollFlags="scroll|enterAlways|snap">
 
             <TextView
-                style="@style/Header20Light"
-                android:layout_marginTop="8dp"
+                style="@style/Header20LightCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/author_name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                 android:textColor="@color/offWhite" />
 
             <TextView
                 android:id="@+id/authorWebsite"
+                style="@style/Header16LightCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                style="@style/Header16Light"
                 android:text="@string/author_website"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                 android:textColor="@android:color/white" />
@@ -100,10 +100,10 @@
             app:layout_constraintGuide_end="8dp" />
 
         <TextView
+            style="@style/Body14LightCenter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            style="@style/Body14Light"
             android:text="@string/about_text"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"

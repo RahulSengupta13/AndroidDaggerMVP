@@ -34,33 +34,49 @@
     </style>
 
     <!--TextView Styles-->
-    <style name="HeaderLight">
+    <style name="HeaderLightCenter">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textAlignment">center</item>
     </style>
 
-    <style name="Header30Light" parent="HeaderLight">
+    <style name="HeaderLightLeft">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="Header30LightCenter" parent="HeaderLightCenter">
         <item name="android:textSize">30sp</item>
     </style>
 
-    <style name="Header26Light" parent="HeaderLight">
+    <style name="Header26LightCenter" parent="HeaderLightCenter">
         <item name="android:textSize">26sp</item>
     </style>
 
-    <style name="Header20Light" parent="HeaderLight">
+    <style name="Header20LightCenter" parent="HeaderLightCenter">
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="Header16Light" parent="HeaderLight">
+    <style name="Header16LightCenter" parent="HeaderLightCenter">
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="BodyLight">
+    <style name="Header16LightLeft" parent="HeaderLightLeft">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BodyLightCenter">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textAlignment">center</item>
     </style>
 
-    <style name="Body14Light" parent="BodyLight">
+    <style name="Body14LightCenter" parent="BodyLightCenter">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BodyLightLeft">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="Body14LightLeft" parent="BodyLightLeft">
         <item name="android:textSize">14sp</item>
     </style>
 

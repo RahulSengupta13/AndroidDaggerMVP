@@ -34,7 +34,7 @@
 
     <Button
         android:id="@+id/buttonNext"
-        style="@style/Header16Light"
+        style="@style/Header16LightCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
@@ -44,7 +44,7 @@
 
     <Button
         android:id="@+id/buttonSkip"
-        style="@style/Header16Light"
+        style="@style/Header16LightCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"

@@ -25,7 +25,7 @@
 
         <TextView
             android:id="@+id/predictionTextView"
-            style="@style/Body14Light"
+            style="@style/Body14LightCenter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -48,7 +48,7 @@
             app:layout_constraintStart_toEndOf="@id/predictionTextView"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_fileName="next.json" />
+            app:lottie_fileName="next.json"
+            app:lottie_loop="true" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

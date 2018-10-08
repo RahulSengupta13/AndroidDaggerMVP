@@ -74,7 +74,7 @@
 
                             <TextView
                                 android:id="@+id/textView"
-                                style="@style/Header26Light"
+                                style="@style/Header26LightCenter"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
@@ -85,7 +85,7 @@
 
                             <TextView
                                 android:id="@+id/headerText"
-                                style="@style/Header20Light"
+                                style="@style/Header20LightCenter"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
@@ -150,6 +150,7 @@
                                 app:layout_constraintTop_toBottomOf="@id/labelLayout" />
 
                             <include
+                                android:id="@+id/webLayout"
                                 layout="@layout/item_result_web_layout"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"

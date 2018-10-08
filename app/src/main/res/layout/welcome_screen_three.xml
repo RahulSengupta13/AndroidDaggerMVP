@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        style="@style/Header30Light"
+        style="@style/Header30LightCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
@@ -34,7 +34,7 @@
 
     <TextView
         android:id="@+id/textView3"
-        style="@style/Header16Light"
+        style="@style/Header16LightCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="179dp"

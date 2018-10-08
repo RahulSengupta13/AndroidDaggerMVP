@@ -67,10 +67,24 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="8dp" />
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/progressIndicator"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:cropToPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="loading.json"
+                app:lottie_loop="true" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/resultRecyclerView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/endGuideline"
                 app:layout_constraintStart_toStartOf="@id/startGuideline"
                 app:layout_constraintTop_toTopOf="parent" />
