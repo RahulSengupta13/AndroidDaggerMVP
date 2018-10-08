@@ -49,6 +49,7 @@ class ResultActivity : AppCompatActivity(), ResultContract.View {
                 resultRecyclerView.adapter = ResultAdapter(this, ResultManager.logoAnnotations)
             }
             ResultType.WEB_MATCHED -> {
+                progressIndicator.visibility = View.VISIBLE
                 presenter.loadImagesForUrls()
                 resultRecyclerView.adapter = WebResultAdapter(this, ResultManager.matchingPagesWithImages)
             }

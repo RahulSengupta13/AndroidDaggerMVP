@@ -72,6 +72,7 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:cropToPadding="true"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/endGuideline"
                 app:layout_constraintStart_toStartOf="@id/startGuideline"
