@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PhotoDoc</string>
     <string name="hello_world">Hello World</string>
-    <string name="about_text"> Hello.\n\nI\'m Rahul, mobile application developer.\n\nThis is an example application that shows how to use MVP with Dagger2 and Retrofit in Kotlin.
-        It fetches data from typicode api (https://jsonplaceholder.typicode.com)\n\nPlease check the source code for further information.\n\nThank you.\n\n Rahul</string>
+    <string name="about_text">Welcome to PhotoDoc, an application that lets you get powerful insight into an image. With PhotoDoc, you can select an image either from your gallery or capture one, upload it, and it\'ll provide you with a list of all things your image might be or have! Whether you want to identify a dog breed, a product or get web links for a product in the image, PhotoDoc has you covered! \n\nEnjoy!</string>
+    <string name="support_text">For support, reach out to %1$s or leave comments on the Playstore.</string>
     <string name="info">Info</string>
     <string name="auto_vision">Know your image</string>
     <string name="auto_vision_title">Want to know what you\'re looking at?</string>
@@ -43,6 +43,7 @@
     <string name="menu_version">Version: 1.0.0</string>
     <string name="author_name">Rahul Sengupta</string>
     <string name="author_website">www.rahulsengupta.me</string>
+    <string name="author_email">rahulsengupta.se@gmail.com</string>
     <string name="button_details">DETAILS</string>
     <string name="web_search">WEB SEARCH</string>
     <string name="connectivity_offline">You appear to be offline. Please try again later.</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -49,37 +50,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/author_name"
+                android:layout_marginBottom="8dp"
+                android:text="@string/app_name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                 android:textColor="@color/offWhite" />
 
-            <TextView
-                android:id="@+id/authorWebsite"
-                style="@style/Header16LightCenter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="@string/author_website"
-                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                android:textColor="@android:color/white" />
+            <!--<TextView-->
+            <!--android:id="@+id/authorWebsite"-->
+            <!--style="@style/Header16LightCenter"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="4dp"-->
+            <!--android:layout_marginBottom="4dp"-->
+            <!--android:text="@string/author_website"-->
+            <!--android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"-->
+            <!--android:textColor="@android:color/white" />-->
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.airbnb.lottie.LottieAnimationView
+    <!--<com.airbnb.lottie.LottieAnimationView-->
+    <!--android:id="@+id/aboutImage"-->
+    <!--android:layout_width="120dp"-->
+    <!--android:layout_height="120dp"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:cropToPadding="true"-->
+    <!--android:elevation="8dp"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--app:layout_anchor="@id/title_container"-->
+    <!--app:layout_anchorGravity="top|center_horizontal"-->
+    <!--app:layout_scrollFlags="scroll"-->
+    <!--app:lottie_autoPlay="true"-->
+    <!--app:lottie_fileName="face.json"-->
+    <!--app:lottie_loop="true" />-->
+
+
+    <ImageView
         android:id="@+id/aboutImage"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center_horizontal"
-        android:cropToPadding="true"
+        android:contentDescription="@string/image_content"
         android:elevation="8dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/app_icon_bg_white"
         app:layout_anchor="@id/title_container"
         app:layout_anchorGravity="top|center_horizontal"
-        app:layout_scrollFlags="scroll"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="face.json"
-        app:lottie_loop="true" />
+        app:layout_scrollFlags="scroll" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -101,7 +117,8 @@
             app:layout_constraintGuide_end="8dp" />
 
         <TextView
-            style="@style/Body14LightCenter"
+            android:id="@+id/aboutDescription"
+            style="@style/AboutBody"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -109,5 +126,16 @@
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/supportDescription"
+            style="@style/AboutBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/aboutDescription"
+            tools:text="@string/support_text" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

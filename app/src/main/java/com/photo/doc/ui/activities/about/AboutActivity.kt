@@ -3,13 +3,18 @@ package com.photo.doc.ui.activities.about
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.text.style.URLSpan
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.android.material.appbar.AppBarLayout
 import com.photo.doc.R
 import com.photo.doc.dagger.component.DaggerAboutComponent
 import com.photo.doc.dagger.module.AboutModule
-import com.google.android.material.appbar.AppBarLayout
+import com.photo.doc.utils.LinkUtils.applyClickableHtml
+import com.photo.doc.utils.LinkUtils.wrapInHtmlLink
 import kotlinx.android.synthetic.main.activity_about.*
 import javax.inject.Inject
 
@@ -36,11 +41,15 @@ class AboutActivity : AppCompatActivity(), AboutContract.View, AppBarLayout.OnOf
 
         injectDependency()
 
-        authorWebsite.setOnClickListener {
-            val intent = Intent(Intent.ACTION_WEB_SEARCH)
-            intent.putExtra(SearchManager.QUERY, authorWebsite.text)
-            startActivity(intent)
-        }
+        val email = getString(R.string.author_email).wrapInHtmlLink(getString(R.string.author_email))
+        val formattedString = getString(R.string.support_text, email)
+        supportDescription.applyClickableHtml(formattedString) { span -> onEmailClick(span) }
+
+//        authorWebsite.setOnClickListener {
+//            val intent = Intent(Intent.ACTION_WEB_SEARCH)
+//            intent.putExtra(SearchManager.QUERY, authorWebsite.text)
+//            startActivity(intent)
+//        }
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout, i: Int) {
@@ -62,6 +71,18 @@ class AboutActivity : AppCompatActivity(), AboutContract.View, AppBarLayout.OnOf
             aboutImage.animate()
                     .scaleY(1f).scaleX(1f)
                     .start()
+        }
+    }
+
+    private fun onEmailClick(span: URLSpan) {
+        Toast.makeText(this, span.url, Toast.LENGTH_SHORT).show()
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:") // only email apps should handle this
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(span.url))
+            putExtra(Intent.EXTRA_SUBJECT, "PhotoDoc Support")
+        }
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
         }
     }
 

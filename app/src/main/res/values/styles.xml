@@ -82,6 +82,10 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="AboutBody" parent="Body14LightLeft">
+        <item name="android:lineSpacingExtra">2sp</item>
+    </style>
+
     <style name="NavHeader24Title">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">@color/offWhite</item>

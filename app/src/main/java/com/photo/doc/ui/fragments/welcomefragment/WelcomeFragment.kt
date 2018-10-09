@@ -131,6 +131,6 @@ class WelcomeFragment : androidx.fragment.app.Fragment(), WelcomeFragmentContrac
     companion object {
         fun newInstance() = WelcomeFragment()
         const val TAG: String = "Welcome Fragment"
-        val screenLayouts = arrayOf(R.layout.welcome_screen_one, R.layout.welcome_screen_two, R.layout.welcome_screen_three)
+        val screenLayouts = arrayOf(R.layout.welcome_screen_one, R.layout.welcome_screen_three)
     }
 }
