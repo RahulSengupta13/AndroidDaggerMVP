@@ -21,7 +21,7 @@ import com.google.api.services.vision.v1.model.Feature
 import com.google.api.services.vision.v1.model.Image
 import java.io.ByteArrayOutputStream
 
-class AutoVisionRepositoryImpl constructor(private val activity: Activity) : AutoVisionContract.Presenter {
+class AutoVisionPresenter constructor(private val activity: Activity) : AutoVisionContract.Presenter {
 
     private lateinit var view: AutoVisionContract.View
 
